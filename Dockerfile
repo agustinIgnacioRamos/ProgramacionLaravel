@@ -47,7 +47,6 @@ COPY . .
 COPY --from=assets /app/public/build ./public/build
 
 RUN composer install \
-        --no-dev \
         --no-interaction \
         --prefer-dist \
         --optimize-autoloader \
