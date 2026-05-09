@@ -9,3 +9,349 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+@layer base {
+    :root {
+        --fars-ink: #131412;
+        --fars-line: #d8d1c4;
+        --fars-coral: #f05a45;
+        --fars-teal: #159f9a;
+        --fars-gold: #efbf3e;
+        --fars-lime: #8ac85f;
+        --fars-night: #101411;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer components {
+    .fars-page {
+        min-height: 100vh;
+        min-height: 100svh;
+        color: var(--fars-ink);
+        background:
+            linear-gradient(rgba(19, 20, 18, 0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(19, 20, 18, 0.06) 1px, transparent 1px),
+            linear-gradient(135deg, #fbf5eb 0%, #f2efe5 52%, #dff4ed 100%);
+        background-size: 34px 34px, 34px 34px, 100% 100%;
+        font-family: var(--font-sans);
+    }
+
+    .fars-shell {
+        width: min(1160px, calc(100% - 32px));
+        min-height: 100vh;
+        min-height: 100svh;
+        margin: 0 auto;
+        padding: 28px 0;
+        display: grid;
+        gap: 26px;
+        align-content: center;
+    }
+
+    .fars-hero {
+        display: grid;
+        align-content: center;
+        gap: 24px;
+        padding: 10px 0;
+    }
+
+    .fars-kicker,
+    .fars-section-label {
+        width: fit-content;
+        padding: 8px 10px;
+        border: 1px solid rgba(19, 20, 18, 0.16);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.48);
+        color: #4c4b44;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: uppercase;
+    }
+
+    .fars-hero h1 {
+        margin: 0;
+        color: var(--fars-night);
+        font-size: clamp(4.6rem, 18vw, 10rem);
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 0.82;
+    }
+
+    .fars-lead {
+        max-width: 620px;
+        margin: 0;
+        color: #34352f;
+        font-size: clamp(1.18rem, 2.4vw, 1.8rem);
+        font-weight: 650;
+        letter-spacing: 0;
+        line-height: 1.22;
+    }
+
+    .fars-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .fars-stack span {
+        padding: 10px 12px;
+        border: 1px solid rgba(19, 20, 18, 0.18);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.58);
+        color: #262821;
+        font-size: 0.92rem;
+        font-weight: 800;
+        letter-spacing: 0;
+        line-height: 1;
+    }
+
+    .fars-stage {
+        position: relative;
+        min-height: 390px;
+        display: grid;
+        align-content: space-between;
+        gap: 28px;
+        overflow: hidden;
+        padding: 24px;
+        border: 1px solid rgba(19, 20, 18, 0.2);
+        border-radius: 8px;
+        background:
+            linear-gradient(135deg, rgba(240, 90, 69, 0.22), transparent 32%),
+            linear-gradient(315deg, rgba(21, 159, 154, 0.2), transparent 38%),
+            var(--fars-night);
+        box-shadow: 0 24px 70px rgba(19, 20, 18, 0.18);
+        color: #fff8ea;
+    }
+
+    .fars-stage::before {
+        content: '';
+        position: absolute;
+        inset: 18px;
+        border: 1px solid rgba(255, 248, 234, 0.14);
+        border-radius: 6px;
+        pointer-events: none;
+    }
+
+    .fars-stage::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(90deg, transparent 0 47%, rgba(255, 248, 234, 0.08) 47% 48%, transparent 48%),
+            linear-gradient(transparent 0 47%, rgba(255, 248, 234, 0.08) 47% 48%, transparent 48%);
+        background-size: 74px 74px;
+        opacity: 0.7;
+        pointer-events: none;
+    }
+
+    .fars-wordmark {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        width: min(100%, 420px);
+    }
+
+    .fars-wordmark span {
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 248, 234, 0.22);
+        border-radius: 8px;
+        background: rgba(255, 248, 234, 0.08);
+        color: #fff8ea;
+        font-size: clamp(3.2rem, 12vw, 6.6rem);
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 1;
+    }
+
+    .fars-wordmark span:nth-child(1) {
+        color: var(--fars-coral);
+    }
+
+    .fars-wordmark span:nth-child(2) {
+        color: var(--fars-gold);
+    }
+
+    .fars-wordmark span:nth-child(3) {
+        color: var(--fars-lime);
+    }
+
+    .fars-wordmark span:nth-child(4) {
+        color: #76ded9;
+    }
+
+    .fars-signal {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .fars-signal span {
+        height: 10px;
+        border-radius: 8px;
+        background: currentColor;
+        opacity: 0.84;
+    }
+
+    .fars-signal span:nth-child(1) {
+        color: var(--fars-coral);
+    }
+
+    .fars-signal span:nth-child(2) {
+        color: var(--fars-gold);
+    }
+
+    .fars-signal span:nth-child(3) {
+        color: var(--fars-lime);
+    }
+
+    .fars-signal span:nth-child(4) {
+        color: var(--fars-teal);
+    }
+
+    .fars-stage p {
+        position: relative;
+        z-index: 1;
+        max-width: 320px;
+        margin: 0;
+        color: rgba(255, 248, 234, 0.82);
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 1.35;
+    }
+
+    .fars-team {
+        display: grid;
+        gap: 18px;
+        padding: 4px 0;
+    }
+
+    .fars-team h2 {
+        margin: 10px 0 0;
+        color: var(--fars-night);
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        font-weight: 880;
+        letter-spacing: 0;
+        line-height: 1.02;
+    }
+
+    .fars-members {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .fars-members article {
+        min-height: 150px;
+        display: grid;
+        align-content: space-between;
+        gap: 18px;
+        padding: 16px;
+        border: 1px solid var(--fars-line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.68);
+        box-shadow: 0 14px 36px rgba(19, 20, 18, 0.08);
+    }
+
+    .fars-members span {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        color: var(--fars-night);
+        font-size: 1.1rem;
+        font-weight: 900;
+        letter-spacing: 0;
+    }
+
+    .fars-members article:nth-child(1) span {
+        background: var(--fars-coral);
+    }
+
+    .fars-members article:nth-child(2) span {
+        background: var(--fars-gold);
+    }
+
+    .fars-members article:nth-child(3) span {
+        background: var(--fars-lime);
+    }
+
+    .fars-members article:nth-child(4) span {
+        background: #74d8d3;
+    }
+
+    .fars-members h3 {
+        margin: 0;
+        color: #20211d;
+        font-size: clamp(1.05rem, 2vw, 1.28rem);
+        font-weight: 850;
+        letter-spacing: 0;
+        line-height: 1.08;
+    }
+}
+
+@media (min-width: 900px) {
+    .fars-shell {
+        grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.98fr);
+        grid-template-areas:
+            'hero stage'
+            'team team';
+        gap: 30px;
+    }
+
+    .fars-hero {
+        grid-area: hero;
+    }
+
+    .fars-stage {
+        grid-area: stage;
+    }
+
+    .fars-team {
+        grid-area: team;
+        grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
+        align-items: end;
+        gap: 26px;
+    }
+}
+
+@media (max-width: 760px) {
+    .fars-shell {
+        width: min(100% - 24px, 620px);
+        padding: 18px 0 24px;
+    }
+
+    .fars-stage {
+        min-height: 330px;
+        padding: 18px;
+    }
+
+    .fars-members {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 460px) {
+    .fars-stack span {
+        flex: 1 1 calc(50% - 10px);
+        text-align: center;
+    }
+
+    .fars-members {
+        grid-template-columns: 1fr;
+    }
+
+    .fars-members article {
+        min-height: 126px;
+    }
+}

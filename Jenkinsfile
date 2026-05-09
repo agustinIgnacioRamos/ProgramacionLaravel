@@ -48,6 +48,23 @@ pipeline {
             }
         }
 
+        stage('Format code') {
+            steps {
+                sh '''
+                    set -eu
+
+                    docker run --rm \
+                        --user "$(id -u):$(id -g)" \
+                        -e COMPOSER_CACHE_DIR=/tmp/composer-cache \
+                        -v "$PWD:/app" \
+                        -w /app \
+                        --entrypoint sh \
+                        composer:2 \
+                        -lc 'composer install --no-interaction --prefer-dist && composer format'
+                '''
+            }
+        }
+
         stage('Build and deploy') {
             steps {
                 sh '''
