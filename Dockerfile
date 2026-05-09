@@ -23,7 +23,6 @@ RUN apt-get update \
     && docker-php-ext-install \
         bcmath \
         intl \
-        opcache \
         pdo_mysql \
         zip \
     && a2enmod rewrite \
