@@ -12,7 +12,7 @@ pipeline {
 
     environment {
         DEPLOY_ENV_DIR = '/opt/apps/programacion-laravel'
-        APP_URL = 'http://138.36.236.251'
+        APP_URL = 'https://programacion-laravel-agustin.duckdns.org'
     }
 
     stages {
@@ -42,6 +42,7 @@ pipeline {
                         sed -i "s|^APP_KEY=.*|APP_KEY=$app_key|" "$DEPLOY_ENV_DIR/.env"
                     fi
 
+                    sed -i "s|^APP_URL=.*|APP_URL=$APP_URL|" "$DEPLOY_ENV_DIR/.env"
                     cp "$DEPLOY_ENV_DIR/.env" .env
                 '''
             }
