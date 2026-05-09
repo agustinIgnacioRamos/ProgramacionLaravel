@@ -17,7 +17,7 @@
                 <h1 id="fars-title">FARS</h1>
 
                 <p class="fars-lead">
-                    Roman hace los requerimientos.
+                    ¡Román hace los requerimientos!
                 </p>
             </section>
 
