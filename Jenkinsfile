@@ -54,10 +54,10 @@ pipeline {
                     set -eu
 
                     docker run --rm \
+                        --volumes-from jenkins \
                         --user "$(id -u):$(id -g)" \
                         -e COMPOSER_CACHE_DIR=/tmp/composer-cache \
-                        -v "$PWD:/app" \
-                        -w /app \
+                        -w "$PWD" \
                         --entrypoint sh \
                         composer:2 \
                         -lc 'composer install --no-interaction --prefer-dist && composer format'
