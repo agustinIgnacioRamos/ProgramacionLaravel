@@ -58,12 +58,12 @@ pipeline {
             }
         }
 
-        stage('Migrate') {
+        stage('Reset database') {
             steps {
                 sh '''
                     set -eu
 
-                    docker compose exec -T app php artisan migrate --force
+                    docker compose exec -T app php artisan migrate:fresh --seed --force
                     docker compose exec -T app php artisan optimize
                 '''
             }
