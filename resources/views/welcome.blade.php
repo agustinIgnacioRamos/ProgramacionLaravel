@@ -48,7 +48,7 @@
                 <div class="fars-members">
                     <article>
                         <span>F</span>
-                        <h3>Francisca Ronco</h3>
+                        <h3>Francisca Ronconi</h3>
                     </article>
 
                     <article>
